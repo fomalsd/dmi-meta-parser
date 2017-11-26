@@ -28,12 +28,11 @@ public class MainClass {
 
     public static void main(String[] args) {
         if(args[0] == null){
-            logger.error("Path not provided! provide path to tgstation root folder as a first argument:\n" +
-                    "java -jar dmi_meta_parser.jar C:/tgstation-master");
+            logger.error("Path not provided! provide path to unitystation Resources folder as a first argument:\n" +
+                    "java -jar dmi_meta_parser.jar C:/unitystation/Assets/Resources");
         }
         Path path = Paths.get(args[0]);
         logger.info("Crawling {}", path);
-        crawlDM(path);
         crawlDMI(path);
 
     }

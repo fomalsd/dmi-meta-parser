@@ -63,6 +63,7 @@ public class Sprite implements Serializable {
         Sprite sprite = (Sprite) o;
 
         if (!state.equals(sprite.state)) return false;
+        if (!unityName.equals(sprite.unityName)) return false;
 
         return true;
     }

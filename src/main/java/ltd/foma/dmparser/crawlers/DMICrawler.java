@@ -26,7 +26,7 @@ public class DMICrawler extends SimpleFileVisitor<Path> {
     private transient final Path startingPath;
 
     public DMICrawler(Path path) {
-        matcher = FileSystems.getDefault().getPathMatcher("glob:" + "*.dmi");
+        matcher = FileSystems.getDefault().getPathMatcher("glob:" + "*.png");
         startingPath = path;
     }
 
@@ -40,7 +40,7 @@ public class DMICrawler extends SimpleFileVisitor<Path> {
             dmp.parse();
             HashSet<Sprite> spriteList = dmp.getSprites();
             if (!spriteList.isEmpty()) {
-                DMIFile dmiFile = new DMIFile(pathToPortableString(startingPath.relativize(file)), spriteList);
+                DMIFile dmiFile = new DMIFile(pathToPortableString(startingPath.relativize(file)).replace(".png",".dmi"), spriteList);
 
                 dmiFiles.add(dmiFile);
             }
